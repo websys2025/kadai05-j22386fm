@@ -25,7 +25,8 @@
             
             const response = await fetch(`${endpoint}?zipcode=${zipcode}`);
             const data = await response.json();
-            
+            const address = data.results[0];
+
             // zipcloudのAPI呼び出して結果を表示する
             resultDiv.innerHTML =  `
                 ${address.prefcode}; 
