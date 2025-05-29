@@ -22,11 +22,13 @@
             if(!zipcode || !/^\$d{7}/.test(zipcode)) {
                 resultDiv.innerHTML = `郵便番号をハイフン抜きで入力してください`
             }
+            
             const response = await fetch(`${endpoint}?zipcode=${zipcode}`);
             const data = await response.json();
+            
             // zipcloudのAPI呼び出して結果を表示する
-            document.getElementById("result").innerHTML =  `
-                ${address}; 
+            resultDIv.innerHTML =  `
+                ${address.prefcode}; 
             `;
         }
     </script>
