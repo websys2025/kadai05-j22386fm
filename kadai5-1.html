@@ -29,8 +29,14 @@
 
             // zipcloudのAPI呼び出して結果を表示する
             resultDiv.innerHTML =  `
-                ${address.prefcode}; 
-            `;
+                都道府県コード: ${address.prefcode}<br>
+                　都道府県名　: ${address.address1}<br>
+                　市区町村名　: ${address.address2}<br>
+                　　町域名　　: ${address.address3}<br>
+                都道府県名カナ: ${address.kana1}<br>
+                市区町村名カナ: ${address.kana2}<br>
+                　町域名カナ　: ${address.kana3}
+                    `;
         }
     </script>
 </body>
