@@ -20,7 +20,7 @@
 
             // 入力チェック
             if(!zipcode || !/^\$d{7}/.test(zipcode)) {
-                resultDiv.innerHTML = `郵便番号をハイフン抜きで入力してください`
+                resultDiv.innerHTML = `郵便番号（ハイフンはあってもなくても可）を入力してください`
             }
             
             const response = await fetch(`${endpoint}?zipcode=${zipcode}`);
