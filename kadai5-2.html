@@ -10,21 +10,25 @@
         <button type="button" id="btn1" onclick="some_api(this.form)">実行</button>
     </p></form>
     
-    <div id="result"></div>
+    <div id="result">数字に関するトリビアがここに表示されます</div>
     <script>
         async function some_api(myForm) {
             // ここにコードを書く
             const number = myForm.form_data.value; // 取得した数字を格納
             
             // 入力チェック
-            if(!zipcode || !/^\$d{7}/.test(zipcode)) {
-                resultDiv.innerHTML = `他の数字を入力してください`
-            }
+            // if(!zipcode || !/^\$d{7}/.test(zipcode)) {
+                document.getElementById("result").innerHTML = `他の数字を入力してください`
+            // }
             const responce = await fetch(`http://numbersapi.com/${number}/trivia`); 
             const data = await responce.text();
             document.getElementById("result").innerHTML = data +"<br />";
+            document.getElementById("DeepL").innerHTML = "<a href=https://www.deepl.com/ja/translator>このサイト</a>で翻訳してみてください<br />";
             document.apiform.reset();
+
         }
     </script>
+    <div id="DeepL"></div>
+
 </body>
 </html>
