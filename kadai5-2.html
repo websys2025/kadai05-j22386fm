@@ -4,9 +4,9 @@
     <title>演習課題5-2：外部APIの呼び出しテスト</title>
 </head>
 <body>
-    <h1 id="msg">何かのAPI</h1>
+    <h1 id="msg">数字のAPI</h1>
     <form name="apiform"><p>
-        何かのフォーム：<input type="text" name="form_data">
+        数字：<input type="text" name="form_data">
         <button type="button" id="btn1" onclick="some_api(this.form)">実行</button>
     </p></form>
     
@@ -14,7 +14,11 @@
     <script>
         async function some_api(myForm) {
             // ここにコードを書く
-            document.getElementById("result").innerHTML += myForm.form_data.value+"<br />";
+            const number = myForm.form_data.value; // 取得した数字を格納
+            const responce = await fetch(`http://numbersapi.com/${number}/trivia`); 
+            const data = await responce.json();
+            const trivia = data[0];
+            document.getElementById("result").innerHTML += trivia +"<br />";
             document.apiform.reset();
         }
     </script>
