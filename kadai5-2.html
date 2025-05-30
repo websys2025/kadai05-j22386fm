@@ -15,10 +15,14 @@
         async function some_api(myForm) {
             // ここにコードを書く
             const number = myForm.form_data.value; // 取得した数字を格納
+            
+            // 入力チェック
+            if(!zipcode || !/^\$d{7}/.test(zipcode)) {
+                resultDiv.innerHTML = `他の数字を入力してください`
+            }
             const responce = await fetch(`http://numbersapi.com/${number}/trivia`); 
-            const data = await responce.json();
-            const trivia = data[0];
-            document.getElementById("result").innerHTML += trivia +"<br />";
+            const data = await responce.text();
+            document.getElementById("result").innerHTML = data +"<br />";
             document.apiform.reset();
         }
     </script>
