@@ -4,7 +4,7 @@
 * リクエストとレスポンスのフォーマット
 ### Q3-2. 各自で調査したAPIについて説明せよ。
 * APIの名称と参照URL
-  * APIの名前：NUMBERSAPI　URL：http://numbersapi.com/#5
+  * APIの名前：NUMBERSAPI　URL：`http://numbersapi.com/#5`
 * エンドポイントと機能
   * エンドポイント:
   * 機能：
