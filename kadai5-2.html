@@ -4,10 +4,10 @@
     <title>演習課題5-2：外部APIの呼び出しテスト</title>
 </head>
 <body>
-    <h1 id="msg">数字のAPI</h1>
+    <h1 id="msg">数字のトリビアAPI</h1>
     <form name="apiform"><p>
         数字：<input type="text" name="form_data">
-        <button type="button" id="btn1" onclick="some_api(this.form)">実行</button>
+        <button type="button" id="btn1" onclick="some_api(this.form)">トリビアを聞く</button>
     </p></form>
     
     <div id="result">数字に関するトリビアがここに表示されます</div>
@@ -17,15 +17,16 @@
             const number = myForm.form_data.value; // 取得した数字を格納
             
             // 入力チェック
-            // if(!zipcode || !/^\$d{7}/.test(zipcode)) {
-                document.getElementById("result").innerHTML = `他の数字を入力してください`
-            // }
+            if(!Number.isInteger(number)) {
             const responce = await fetch(`http://numbersapi.com/${number}/trivia`); 
             const data = await responce.text();
-            document.getElementById("result").innerHTML = data +"<br />";
+            document.getElementById("result").innerHTML = "<p><h4>" + data +"</h4></p>";
             document.getElementById("DeepL").innerHTML = "<a href=https://www.deepl.com/ja/translator>このサイト</a>で翻訳してみてください<br />";
             document.apiform.reset();
 
+            }else{
+            document.getElementById("result").innerHTML = `数字を入力してください`
+            }
         }
     </script>
     <div id="DeepL"></div>
