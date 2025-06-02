@@ -4,13 +4,18 @@
     <title>演習課題5-2：外部APIの呼び出しテスト</title>
 </head>
 <body>
-    <h1 id="msg">数字のトリビアAPI</h1>
-    <form name="apiform"><p>
-        数字：<input type="text" name="form_data">
-        <button type="button" id="btn1" onclick="some_api(this.form)">トリビアを聞く</button>
-    </p></form>
+    <center><h1 id="msg"><font color="royalblue"; >数字のトリビアAPI</span></font></h1>
+        <form name="apiform"><p>
+            数字：<input type="text" name="form_data">
+            <button type="button" id="btn1" onclick="some_api(this.form)">トリビアを聞く</button>
+        </p></form>
     
-    <div id="result">数字に関するトリビアがここに表示されます</div>
+        <div id="result">
+            <span style="background: linear-gradient(transparent 60%, #ff99cc 0%);">
+                <font color="mediumblue";>数字に関するトリビアがここに表示されます</font>
+            </span>
+        </div>
+    </center>
     <script>
         async function some_api(myForm) {
             // ここにコードを書く
@@ -18,18 +23,20 @@
             
             // 入力チェック
             if(!Number.isInteger(number)) {
-            const responce = await fetch(`http://numbersapi.com/${number}/trivia`); 
-            const data = await responce.text();
-            document.getElementById("result").innerHTML = "<p><h4>" + data +"</h4></p>";
-            document.getElementById("DeepL").innerHTML = "<a href=https://www.deepl.com/ja/translator>このサイト</a>で翻訳してみてください<br />";
-            document.apiform.reset();
-
+                const responce = await fetch(`http://numbersapi.com/${number}/trivia`); 
+                const data = await responce.text();
+                document.getElementById("result").innerHTML = `
+                    <center><i>
+                        <h4 style="display: inline-block; background: linear-gradient(transparent 70%, #ff99cc 70%); padding: 0 0.1em;">` + data +`</h4>
+                    </i></center> 
+                `;
+                document.getElementById("DeepL").innerHTML = "<center><a href=https://www.deepl.com/ja/translator>このサイト</a>で翻訳してみてください<br /></center>";
+                document.apiform.reset();
             }else{
-            document.getElementById("result").innerHTML = `数字を入力してください`
+                document.getElementById("result").innerHTML = `数字を入力してください`
             }
         }
     </script>
     <div id="DeepL"></div>
-
 </body>
 </html>
