@@ -1,14 +1,18 @@
 ## 外部APIの呼び出しのミニレポート
 ### Q3-1. 郵便番号APIについて説明せよ。
 * エンドポイントと機能
+  * エンドポイント：https://zipcloud.ibsnet.co.jp/api/search
+  * 機能：郵便番号を入力すると、都道府県名コード、都道府県名、市区町村名、町域名とそれぞれのカナ表示が出力される。
 * リクエストとレスポンスのフォーマット
+---
 ### Q3-2. 各自で調査したAPIについて説明せよ。
 * APIの名称と参照URL
-  * APIの名前：NUMBERSAPI　URL：`http://numbersapi.com/#5`
+  * APIの名前：NUMBERSAPI　URL：http://numbersapi.com/#5
 * エンドポイントと機能
-  * エンドポイント:
+  * エンドポイント：https://zipcloud.ibsnet.co.jp/api/search
   * 機能：
 * リクエストとレスポンスのフォーマット
+---
 ### Q3-3. 感想
 * 今回の課題で苦労したこと
   * Kadai5_2.htmlの出力結果にマーカーを引く処理を実装する処理が上手くいかずに時間がかかった。 \
